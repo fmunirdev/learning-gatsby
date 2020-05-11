@@ -1,17 +1,43 @@
 import React from "react"
+import { graphql } from "gatsby"
+
 import Post from "../components/Post"
 import PrimaryLayout from "../layouts/PrimaryLayout"
 
-export default () => (
+export default props => (
   <PrimaryLayout>
     <div className="row justify-content-md">
-      <div className="col-xs-6">
-        <Post
-          title="Introducing Gatsby"
-          text="Just another JS Framework"
-          img="https://i.picsum.photos/id/66/300/200.jpg"
-        ></Post>
-      </div>
+      {props.data.allMarkdownRemark.nodes.map(node => (
+        <div className="col-xs-6">
+          <Post
+            title={node.frontmatter.title}
+            subtitle={node.frontmatter.subtitle}
+            img={node.frontmatter.thumbnail}
+            readMore={node.fields.slug}
+          ></Post>
+        </div>
+      ))}
     </div>
   </PrimaryLayout>
 )
+
+export const query = graphql`
+  {
+    allMarkdownRemark {
+      nodes {
+        frontmatter {
+          title
+          subtitle
+          date
+          keywords
+          thumbnail
+        }
+        fields {
+          slug
+        }
+        excerpt
+        html
+      }
+    }
+  }
+`
