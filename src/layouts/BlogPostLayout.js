@@ -4,11 +4,18 @@ import { Container } from "react-bootstrap"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import SEO from "../components/SEO"
 
 export default props => {
   const post = props.data.wordpressPost
   return (
     <>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.subtitle}
+        image={post.frontmatter.thumbnail}
+        keywords={post.frontmatter.keywords}
+      />
       <Header />
       <Container className="pt-3">
         <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
@@ -22,10 +29,15 @@ export default props => {
 
 export const query = graphql`
   query($slug: String!) {
-    wordpressPost(slug: { eq: $slug }) {
-      title
-      content
-      date
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
+      frontmatter {
+        title
+        subtitle
+        date
+        keywords
+        thumbnail
+      }
     }
   }
 `

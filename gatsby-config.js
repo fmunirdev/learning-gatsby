@@ -6,7 +6,11 @@
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby-Bootstrap",
+    title: "Gatsby Bootstrap",
+    description: "Learning Gatsby, GraphQL and Markdown",
+    keywords: "gatsby, graphql, bootstrap, markdown",
+    image: "/static/site-image.jpg",
+    url: "https://fmunirdev.github.io/learning-gatsby/",
   },
   plugins: [
     {
@@ -19,14 +23,6 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
     },
-    {
-      resolve: `gatsby-source-wordpress`,
-      options: {
-        baseUrl: `ahmadbilal.dev`,
-        protocol: `https`,
-        hostingWPCOM: false,
-        useACF: false,
-      },
-    },
+    `gatsby-plugin-react-helmet`,
   ],
 }
