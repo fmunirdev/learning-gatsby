@@ -7,13 +7,13 @@ import PrimaryLayout from "../layouts/PrimaryLayout"
 export default props => (
   <PrimaryLayout>
     <div className="row justify-content-md">
-      {props.data.allMarkdownRemark.nodes.map(node => (
-        <div className="col-xs-6">
+      {props.data.allWordpressPost.nodes.map(node => (
+        <div className="col-4">
           <Post
-            title={node.frontmatter.title}
-            subtitle={node.frontmatter.subtitle}
-            img={node.frontmatter.thumbnail}
-            readMore={node.fields.slug}
+            title={node.title}
+            subtitle={node.excerpt}
+            img={node.featured_media?.source_url ?? "https://picsum.photos/300/150/"}
+            readMore={node.slug}
           ></Post>
         </div>
       ))}
@@ -23,20 +23,14 @@ export default props => (
 
 export const query = graphql`
   {
-    allMarkdownRemark {
+    allWordpressPost {
       nodes {
-        frontmatter {
-          title
-          subtitle
-          date
-          keywords
-          thumbnail
-        }
-        fields {
-          slug
-        }
+        title
+        slug
         excerpt
-        html
+        featured_media {
+          source_url
+        }
       }
     }
   }

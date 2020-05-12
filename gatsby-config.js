@@ -19,5 +19,14 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
     },
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: `ahmadbilal.dev`,
+        protocol: `https`,
+        hostingWPCOM: false,
+        useACF: false,
+      },
+    },
   ],
 }

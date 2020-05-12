@@ -6,18 +6,14 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 
 export default props => {
-  const post = props.data.markdownRemark
+  const post = props.data.wordpressPost
   return (
     <>
       <Header />
       <Container className="pt-3">
-        <h1>{post.frontmatter.title}</h1>
-        <h5 className="text-muted">{post.frontmatter.subtitle}</h5>
-        <p>
-          Created: {post.frontmatter.date} <br />
-          Keywords: {post.frontmatter.keywords}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+        <p>Published: {post.date.substring(0,10)}</p>
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </Container>
       <Footer />
     </>
@@ -26,14 +22,10 @@ export default props => {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        subtitle
-        date
-        keywords
-      }
+    wordpressPost(slug: { eq: $slug }) {
+      title
+      content
+      date
     }
   }
 `
