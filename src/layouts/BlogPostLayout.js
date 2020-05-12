@@ -4,11 +4,18 @@ import { Container } from "react-bootstrap"
 
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import SEO from "../components/SEO"
 
 export default props => {
   const post = props.data.markdownRemark
   return (
     <>
+      <SEO
+        title={post.frontmatter.title}
+        description={post.frontmatter.subtitle}
+        image={post.frontmatter.thumbnail}
+        keywords={post.frontmatter.keywords}
+      />
       <Header />
       <Container className="pt-3">
         <h1>{post.frontmatter.title}</h1>
@@ -33,6 +40,7 @@ export const query = graphql`
         subtitle
         date
         keywords
+        thumbnail
       }
     }
   }
