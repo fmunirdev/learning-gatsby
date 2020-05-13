@@ -2,7 +2,7 @@
 title: "Introducing GraphQL"
 subtitle: "A query language for your API"
 keywords: "api, query language"
-thumbnail: "https://i.picsum.photos/id/42/300/200.jpg"
+thumbnail: "/thumbnails/graphql.jpg"
 date: "2020-05-12"
 ---
 

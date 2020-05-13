@@ -8,7 +8,7 @@ export default props => (
   <PrimaryLayout>
     <div className="row justify-content-md">
       {props.data.allMarkdownRemark.nodes.map(node => (
-        <div className="col-xs-6">
+        <div className="col-4">
           <Post
             title={node.frontmatter.title}
             subtitle={node.frontmatter.subtitle}

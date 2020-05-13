@@ -2,7 +2,7 @@
 title: "Introducing Gatsby"
 subtitle: "Fast in every way that matters"
 keywords: "javascript, framworks, react"
-thumbnail: "https://i.picsum.photos/id/66/300/200.jpg"
+thumbnail: "/thumbnails/gatsby.jpg"
 date: "2020-05-12"
 ---
 
