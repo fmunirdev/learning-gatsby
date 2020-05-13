@@ -9,7 +9,9 @@ export default props => (
   <>
     <SEO />
     <Header />
-    <Container className="pt-3">{props.children}</Container>
+    <main>
+      <Container className="pt-3">{props.children}</Container>
+    </main>
     <Footer />
   </>
 )

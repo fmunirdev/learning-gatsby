@@ -17,15 +17,17 @@ export default props => {
         keywords={post.frontmatter.keywords}
       />
       <Header />
-      <Container className="pt-3">
-        <h1>{post.frontmatter.title}</h1>
-        <h5 className="text-muted">{post.frontmatter.subtitle}</h5>
-        <p>
-          Created: {post.frontmatter.date} <br />
-          Keywords: {post.frontmatter.keywords}
-        </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </Container>
+      <main>
+        <Container className="pt-3">
+          <h1>{post.frontmatter.title}</h1>
+          <h5 className="text-muted">{post.frontmatter.subtitle}</h5>
+          <p>
+            Created: {post.frontmatter.date} <br />
+            Keywords: {post.frontmatter.keywords}
+          </p>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </Container>
+      </main>
       <Footer />
     </>
   )

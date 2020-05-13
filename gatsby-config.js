@@ -6,7 +6,7 @@
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Bootstrap",
+    title: "Learning Gatsby",
     description: "Learning Gatsby, GraphQL and Markdown",
     keywords: "gatsby, graphql, bootstrap, markdown",
     image: "/static/site-image.jpg",

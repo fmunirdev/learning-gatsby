@@ -24,6 +24,7 @@ export default ({ title, description, keywords, image }) => (
       }
       return (
         <Helmet>
+          <html lang="en" />
           <title>{seo.title}</title>
           <meta name="description" content={seo.description} />
           <meta name="image" content={seo.image} />
