@@ -35,7 +35,7 @@ jobs:
       locationKey: 260622
       lang: en-us
       details: false
-      apiKey: ${{ secrets.ACCWEATHER }}
+      apiKey: ${{ secrets.ACCUWEATHER }}
     steps:
       - name: Current Weather in Lahore
         run: curl -s --url http://dataservice.accuweather.com/currentconditions/v1/$locationKey?apikey=$apiKey&language=$lang&details=$details
