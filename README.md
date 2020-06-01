@@ -1,5 +1,5 @@
+![GitHub Pages](https://github.com/fmunirdev/learning-gatsby/workflows/GitHub%20Pages/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9d990a28-af1e-4101-9ec3-51cc37da4051/deploy-status)](https://app.netlify.com/sites/fmunirdev-learning-gatsby/deploys)
-
 <p align="center">
   <a href="https://fmunirdev-learning-gatsby.netlify.app/">
     <img alt="Leaning Gatsby" src="/static/icon.png" width="60" />
