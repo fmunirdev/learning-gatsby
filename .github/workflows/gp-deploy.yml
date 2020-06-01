@@ -1,0 +1,36 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches: [ feature ]
+  pull_request:
+    branches: [ feature ]
+    types: [ closed ]
+
+jobs:
+  build:
+
+    name: Build & Deploy
+    
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x, 14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Deploy
+      uses: demurgos/ga-deploy-git@v1
+      with:
+        accessToken: ${{ secrets.ACCESS_TOKEN }}
+        srcDir: build
+        destBranch: gh-pages
